@@ -1,5 +1,3 @@
-
-
 # AutoSort AI
 
 An AI-powered desktop application for intelligent file organization using Machine Learning and customizable rule-based automation.
@@ -13,6 +11,17 @@ An AI-powered desktop application for intelligent file organization using Machin
 The system combines traditional rule-based sorting with an intelligent Machine Learning classifier capable of recognizing different file types using extensions, metadata, file signatures (magic bytes), and content analysis. Users can preview all file movements before execution through a secure **Dry Run** mode, ensuring complete transparency and preventing accidental file modifications.
 
 AutoSort AI also includes filesystem utilities, performance optimizations through caching, database-backed statistics, and Electron IPC communication between the desktop interface and backend services, providing a fast, secure, and user-friendly file organization experience.
+
+---
+
+# 🚀 Our Mission
+
+* 🤖 **Intelligently organize files** using ML-powered classification models.
+* ⚡ **Eliminate manual sorting** through automated rules and intelligent predictions.
+* 🔍 **Enhance file discovery** with smart search capabilities and perceptive hashing.
+* 📊 **Visualize system performance** with dynamic interactive operating system metrics.
+* 🧹 **Simplify disk maintenance** using duplicate detection and advanced compression tools.
+* 📈 **Provide meaningful insights** through comprehensive analytics dashboards.
 
 ---
 
@@ -94,7 +103,7 @@ The integrated ML engine analyzes files using multiple characteristics, includin
 
 * File extensions
 * File signatures (magic bytes)
-* Binary vs text content detection
+* Binary vs Text content detection
 * Filename characteristics
 * File size
 * Presence of numbers or special characters
@@ -210,20 +219,16 @@ These optimizations improve responsiveness while organizing large numbers of fil
 * TypeScript
 * JavaScript
 
----
-
-## Core Backend
+### Core Backend
 
 * Electron Main Process
 * IPC Communication
-* Node.js FileSystem API
+* Node.js File System API
 * Path Module
 * Crypto Module
 * HTTP & TCP Networking
 
----
-
-## Artificial Intelligence
+### Artificial Intelligence
 
 * Custom Machine Learning Classifier
 * Feature Extraction
@@ -231,9 +236,7 @@ These optimizations improve responsiveness while organizing large numbers of fil
 * Metadata Analysis
 * Content Analysis
 
----
-
-## File System Operations
+### File System Operations
 
 * Node.js File System API
 * Recursive Directory Scanner
@@ -242,18 +245,15 @@ These optimizations improve responsiveness while organizing large numbers of fil
 * File Hashing
 * Metadata Reader
 
----
-
-## Database
+### Database
 
 * Local Database Manager
+* SQLite Database
 * Job History Storage
 * Classification History
 * Statistics Management
 
----
-
-## Development Tools
+### Development Tools
 
 * TypeScript
 * Source Maps
@@ -263,13 +263,147 @@ These optimizations improve responsiveness while organizing large numbers of fil
 
 ---
 
+# ⚡ Quick Start Guide
+
+## Prerequisites
+
+Before running the project, ensure you have:
+
+* **Node.js v16+**
+* **npm v8+**
+* **Python v3.8+** *(Optional ML backend service)*
+* **Windows 10+**, **macOS 10.13+**, or **Linux (Ubuntu 16.04+)**
+
+---
+
+## 1️⃣ Installation
+
+Clone the repository and install all dependencies.
+
+```bash
+git clone https://github.com/your-username/Auto-Sort-Manager.git
+
+cd Auto-Sort-Manager
+
+# Install main process dependencies
+npm install
+
+# Install renderer dependencies
+cd renderer
+npm install
+cd ..
+```
+
+---
+
+## 2️⃣ Environment Configuration
+
+Create a **.env** file in the project root.
+
+```env
+NODE_ENV=development
+
+VITE_API_URL=http://localhost:5000
+
+DATABASE_PATH=./data/autosort.db
+```
+
+---
+
+## 3️⃣ Launch Development Server
+
+Start both the React renderer and Electron desktop application.
+
+```bash
+npm run dev
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+Auto-Sort-Manager/
+│
+├── electron-main/          # Electron backend (Main Process, IPC, Native APIs)
+├── renderer/               # React Frontend (Vite + Tailwind CSS)
+│   ├── src/                # Components, Hooks, Context, Pages
+│   └── vite.config.ts      # Vite Configuration
+│
+├── local-agent/            # Optional Python ML Service
+├── db/                     # SQLite Database & Schemas
+├── shared/                 # Shared Types & IPC Constants
+├── scripts/                # Setup & Mock Data Scripts
+└── tsconfig.electron.json  # Electron TypeScript Configuration
+```
+
+---
+
+# 📦 Building & Distribution
+
+Build production-ready executables using Electron Builder.
+
+### Build Production Files
+
+```bash
+npm run build
+```
+
+### Package for Current Operating System
+
+```bash
+npm run dist
+```
+
+### Build Installers for All Platforms
+
+```bash
+npm run dist:all
+```
+
+Supported outputs include:
+
+* Windows (NSIS Installer)
+* macOS (DMG)
+* Linux (AppImage / DEB)
+
+---
+
+# 🔐 Security & Privacy
+
+AutoSort AI is designed with privacy and security as core principles.
+
+### 🔒 Local-First Processing
+
+All file organization and machine learning operations execute locally by default. No files are uploaded to external servers.
+
+### 🛡️ Context Isolation
+
+The Electron renderer operates through secure preload scripts without direct Node.js access, protecting against remote code execution attacks.
+
+### 💾 Local Database
+
+Operational history, AI rules, statistics, and application settings are stored inside a local SQLite database (`autosort.db`).
+
+### 📂 Path Sanitization
+
+All filesystem operations validate file paths to prevent directory traversal attacks and unauthorized filesystem access.
+
+---
+
 # 📌 Highlights
 
 * ✅ AI-powered intelligent file organization
-* ✅ Rule-based and Machine Learning classification
-* ✅ Safe Dry Run preview mode
-* ✅ Native cross-platform Electron desktop application
-* ✅ Fast filesystem scanning with caching
-* ✅ Secure file operations and IPC communication
-* ✅ Built-in compression, hashing, metadata extraction, and quarantine support
-* ✅ Scalable architecture designed for organizing thousands of files efficiently
+* ✅ Machine Learning & Rule-Based Classification
+* ✅ Safe Dry Run Preview Mode
+* ✅ Cross-platform Electron Desktop Application
+* ✅ Smart Search & Perceptive File Hashing
+* ✅ Duplicate Detection & Compression Utilities
+* ✅ Interactive Analytics Dashboard
+* ✅ Secure Local-First Architecture
+* ✅ SQLite-backed Statistics & Job History
+* ✅ Fast Filesystem Scanning with Intelligent Caching
+* ✅ Secure IPC Communication
+* ✅ Scalable architecture capable of organizing thousands of files efficiently
+
+
