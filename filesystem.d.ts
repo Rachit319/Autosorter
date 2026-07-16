@@ -1,0 +1,34 @@
+import { FileItem, ClassificationResult, SystemUsage } from '../shared/types';
+export declare class FileSystemManager {
+    private scanCache;
+    private hashCache;
+    private MAX_CACHE_SIZE;
+    static dryRunEnabled: boolean;
+    scanDirectory(dirPath: string): Promise<FileItem[]>;
+    private scanRecursive;
+    classifyFile(filePath: string): Promise<ClassificationResult>;
+    private predictCategory;
+    private getSuggestedPath;
+    private getMimeType;
+    private extractMetadata;
+    getFileStats(filePath: string): Promise<ClassificationResult>;
+    getSystemUsage(): Promise<SystemUsage>;
+    createFolder(dirPath: string): Promise<void>;
+    copyFile(source: string, destination: string): Promise<void>;
+    renameFile(oldPath: string, newPath: string): Promise<void>;
+    compressFiles(files: string[], outputPath: string, format?: 'zip' | 'tar' | 'gzip'): Promise<void>;
+    extractArchive(archivePath: string, outputDir: string): Promise<void>;
+    calculateFileHash(filePath: string, algorithm?: 'md5' | 'sha256' | 'sha1'): Promise<string>;
+    calculateHash(filePath: string, algorithm?: 'md5' | 'sha256'): Promise<string>;
+    moveFile(oldPath: string, newPath: string): Promise<void>;
+    deleteFile(filePath: string): Promise<void>;
+    moveToQuarantine(filePath: string): Promise<string>;
+    createFile(filePath: string, content?: string): Promise<void>;
+    createDirectory(dirPath: string): Promise<void>;
+    readFile(filePath: string): Promise<string>;
+    readFileAsBuffer(filePath: string): Promise<Buffer>;
+    readFileMetadata(filePath: string): Promise<any>;
+    updateFile(filePath: string, content: string): Promise<void>;
+    appendToFile(filePath: string, content: string): Promise<void>;
+    clearCache(): void;
+}
